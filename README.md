@@ -54,7 +54,7 @@ Figure 4
 
 The interface developed using PyQt5 is shown in Figure 5. Within the scope of the project, QTable and QImage functions were used.
 
-![image](https://user-images.githubusercontent.com/71135790/190703141-e236d094-e8a9-4b97-b69a-345f05231c3c.png)
+![1](https://user-images.githubusercontent.com/71135790/190703878-8a6e5a57-d3a7-47fd-b4a5-3f1aa68b0d1d.png)
 
 Figure 5
 
