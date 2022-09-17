@@ -96,7 +96,7 @@ def plaka_detection_(path):
     def tversky_loss(y_true, y_pred):
         return 1 - tversky(y_true,y_pred)
     
-    seg_model=load_model("C:\\Users\\oozer\\Desktop\\plate\\ResUNet-segModel-weights_ensembl.hdf5",custom_objects={"focal_tversky": focal_tversky,"tversky": tversky })
+    seg_model=load_model("C:\\Users\\omer\\Desktop\\plate\\ResUNet-segModel-weights_ensembl.hdf5",custom_objects={"focal_tversky": focal_tversky,"tversky": tversky })
     
     
     df_test= pd.DataFrame(path,columns=['path_original'])
@@ -110,10 +110,10 @@ def plaka_detection_(path):
         
         #read predicted mask
         pred = np.array(df_pred.predicted_mask[0],dtype = np.uint8).squeeze().round()
-        pred= cv2.resize(pred, (2688, 1520)) # burayı değiştirmeyi unutma sayılar değişecek 1280,720 ///640,360
+        pred= cv2.resize(pred, (2688, 1520)) # pixels values it can change
         print(pred.shape)
         
         result = Image.fromarray((pred * 255).astype(np.uint8))
-        out_path=f'C:\\Users\\oozer\\Desktop\\plate\\Kamre_Foto\\Mask\\outpt_{timee}.png'
+        out_path=f'C:\\Users\\omer\\Desktop\\plate\\Kamre_Foto\\Mask\\outpt_{timee}.png'
         result.save(out_path)
         return out_path
