@@ -1,7 +1,7 @@
 # license-plate-detection-and-reading
 ## license plate detection and reading system
 
-The artificial intelligence segmentation model developed for the license plate recognition system is based on the U-Net with backbone pretrained resnet50 architecture. The model is trained in 80 epochs. test success rate is 85%. Figure 1 shows the original photo and the predicted photo.
+The artificial intelligence segmentation model developed for the license plate recognition system is based on the U-Net with backbone pretrained resnet50 architecture. The model is trained in 80 epochs. test success rate is 85%. Figure 1 shows the original photo and the predicted photo. The input image comes from an IP camera.
 
 ![image](https://user-images.githubusercontent.com/71135790/190699460-34aff292-ed06-4d8d-89ad-923a3e153bab.png)
 
