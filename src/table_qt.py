@@ -73,17 +73,12 @@ class Thread(QThread):
     global img
 
     def run(self):
-        cap = cv2.VideoCapture('rtsp://admin:general33@10.33.112.152')#****************152******************
-        # fourcc = cv2.VideoWriter_fourcc(*'mp4v')
-        # out = cv2.VideoWriter('D:\\omar\\plaka\\output.mp4', fourcc, 20.0, (2688,1520))
+        cap = cv2.VideoCapture('rtsp://username:password@10.33.112.152')#****************152******************
         
-        # cap = cv2.VideoCapture('videoplayback.mp4')
+        
         while True:
             ret, frame = cap.read()
             if ret:
-                # out.write(frame) 
-                
-                
                 rgbImage = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
                 h, w, ch = rgbImage.shape
                 bytesPerLine = ch * w
@@ -92,10 +87,7 @@ class Thread(QThread):
                 self.img=frame
                 self.changePixmap.emit(p)
                 cv2.waitKey(10)
-                # cv2.waitKey(25)#for video
-        #     else:
-        #         break
-        # out.release()
+               
 e = datetime.datetime.now()
 timee=str(e.day)+'/'+ str(e.month)+'/'+ str(e.year) +'  '+str(e.hour) +':'+ str(e.minute) +':'+ str(e.second)
 class App(QMainWindow):
@@ -103,14 +95,13 @@ class App(QMainWindow):
     save_con=False
     def __init__(self):
         super().__init__()
-        self.title = 'Koluman Plaka Tespit'
+        self.title = 'Plaka Detection System
         self.text='***Demo***'
         self.left = 50
         self.top = 50
         self.width = 500
         self.height = 200
-        
-        # self.setCentralWidget(self.table)
+      
         self.initUI()
 
     def initUI(self):
@@ -162,7 +153,7 @@ class App(QMainWindow):
         self.th.changePixmap.disconnect(self.setImage)
 
         textboxValue = self.textbox.text()
-        df = pd.read_excel('C:\\Users\\oozer\\Desktop\\plate\\excel\\Plate_detect.xlsx')
+        df = pd.read_excel('C:\\Users\\omeresktop\\plate\\excel\\Plate_detect.xlsx')
         df=df.drop(df.columns[0],axis=1)
         e = datetime.datetime.now()
         timee=str(e.day)+'/'+ str(e.month)+'/'+ str(e.year) +'  '+str(e.hour) +':'+ str(e.minute) +':'+ str(e.second)
