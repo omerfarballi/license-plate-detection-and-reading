@@ -12,7 +12,4 @@ def png_to_text(crop_path):
             return result
         else:
             return result[0]
-# abc=png_to_text('C:\\Users\\oozer\\Desktop\\plate\\Kamre_Foto\\Crop\\cropped_image_plate_9 43 58.png')
-# print(abc)
-# print(type(abc))
-# {'filename': 'cropped_image_plate_9 50 33', 'text': ['of', 'P33.B.412', 'YOKSU', 'SULA', 'ABAK', 'KAN']}
+
