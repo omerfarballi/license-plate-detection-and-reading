@@ -153,7 +153,7 @@ class App(QMainWindow):
         self.th.changePixmap.disconnect(self.setImage)
 
         textboxValue = self.textbox.text()
-        df = pd.read_excel('C:\\Users\\omeresktop\\plate\\excel\\Plate_detect.xlsx')
+        df = pd.read_excel('C:\\Users\\omer\\Desktop\\plate\\excel\\Plate_detect.xlsx')
         df=df.drop(df.columns[0],axis=1)
         e = datetime.datetime.now()
         timee=str(e.day)+'/'+ str(e.month)+'/'+ str(e.year) +'  '+str(e.hour) +':'+ str(e.minute) +':'+ str(e.second)
@@ -161,7 +161,7 @@ class App(QMainWindow):
         #            Time    , Plaka  
         df.loc[df.index[-1]+1]=[timee,textboxValue]
         
-        df.to_excel('C:\\Users\\oozer\\Desktop\\plate\\excel\\Plate_detect.xlsx')
+        df.to_excel('C:\\Users\\omer\\Desktop\\plate\\excel\\Plate_detect.xlsx')
         
         self.model = pandasModel(df)
         self.view = QTableView(self)
@@ -185,7 +185,7 @@ class App(QMainWindow):
         e = datetime.datetime.now()
         timee=str(e.day)+'+'+ str(e.month)+'+'+ str(e.year) +'  '+str(e.hour) +'+'+ str(e.minute) +'+'+ str(e.second)
         
-        original_image_path=f'C:\\Users\\oozer\\Desktop\\plate\\Kamre_Foto\\Orginal\\image_{timee}.png'
+        original_image_path=f'C:\\Users\\omer\\Desktop\\plate\\Kamre_Foto\\Orginal\\image_{timee}.png'
         self.th.changePixmap.disconnect(self.setImage)
         cv2.imwrite(original_image_path,self.th.img)
         self.mask_path=plaka_detection_(original_image_path)
@@ -202,15 +202,7 @@ class App(QMainWindow):
         # self.com.text.connect(self.text_viewer)
         # self.com.text.emit('Lolo')
     
-# """To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
-# 1/1 [==============================] - 1s 714ms/step
-# 1/1 [==============================] - 0s 89ms/step
-# Traceback (most recent call last):
-#   File "c:\Users\CDUKUNLU\Desktop\interface\opencv_interface.py", line 112, in on_click_save
-# mask_path=plaka_detection_(original_image_path)
-# File "c:\Users\CDUKUNLU\Desktop\interface\plate_detection.py", line 108, in plaka_detection_
-# pred = np.array(df_pred.predicted_mask[0],dtype = np.uint8).squ
-# genel hata düzeltilecek"""
+
 if __name__ == '__main__':
     app = QApplication(sys.argv)
     ex = App()
